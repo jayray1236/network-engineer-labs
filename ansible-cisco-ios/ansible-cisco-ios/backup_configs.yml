@@ -1,0 +1,16 @@
+---
+- name: Backup Cisco router and switch configurations
+  hosts: all
+  gather_facts: no
+
+  tasks:
+    - name: Backup running configuration
+      cisco.ios.ios_config:
+        backup: yes
+        backup_options:
+          filename: "{{ inventory_hostname }}-running-config.txt"
+          dir_path: ./backups
+
+    - name: Display backup completion message
+      ansible.builtin.debug:
+        msg: "Backup completed for {{ inventory_hostname }}"
