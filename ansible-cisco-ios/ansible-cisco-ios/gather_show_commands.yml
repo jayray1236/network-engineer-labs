@@ -1,0 +1,24 @@
+---
+- name: Gather common show commands from Cisco IOS devices
+  hosts: all
+  gather_facts: no
+
+  tasks:
+    - name: Run show commands
+      cisco.ios.ios_command:
+        commands:
+          - show version
+          - show ip interface brief
+          - show running-config | include hostname
+          - show interfaces status
+          - show vlan brief
+      register: show_output
+
+    - name: Save show command output to local file
+      ansible.builtin.copy:
+        content: "{{ show_output.stdout | join('\n\n--- COMMAND BREAK ---\n\n') }}"
+        dest: "./outputs/{{ inventory_hostname }}-show-output.txt"
+
+    - name: Display completion message
+      ansible.builtin.debug:
+        msg: "Show command output saved for {{ inventory_hostname }}"
