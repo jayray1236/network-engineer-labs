@@ -9,7 +9,7 @@ This repository contains my hands-on learning labs for network engineering, auto
 - Terraform for AWS networking
 - Meraki API automation
 - Network documentation
-- Interview preparation labs
+
 
 ## Goal
 To build practical skills in modern network engineering, infrastructure automation, and cloud networking.
