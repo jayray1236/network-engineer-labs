@@ -1,0 +1,20 @@
+# Ansible Cisco IOS Lab
+
+This lab shows beginner-friendly Ansible automation for Cisco routers and switches.
+
+## What this lab does
+
+- Connects to Cisco IOS routers and switches
+- Runs show commands
+- Saves device configuration backups
+- Demonstrates basic network automation structure
+
+## Files
+
+- inventory.yml - lab device inventory
+- backup_configs.yml - backs up running configs
+- gather_show_commands.yml - runs useful show commands
+
+## Notes
+
+This is a lab example using fake device names and IP addresses. Do not upload real company IPs, usernames, passwords, or configurations.
